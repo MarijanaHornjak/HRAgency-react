@@ -1,0 +1,39 @@
+.HomePage {
+  height: 80vh;
+  .wrapper {
+    padding: 0 235px;
+    .cards {
+      display: flex;
+
+      flex-wrap: wrap;
+      justify-content: center;
+
+      width: 100%;
+
+      a {
+        padding: 20px;
+        text-align: center;
+        margin: 10px;
+        border: none;
+        border-radius: 20px;
+        text-decoration: none;
+        color: black;
+        background-color: beige;
+        width: 280px;
+
+        h3 {
+          padding: 10px;
+        }
+      }
+    }
+    input {
+      margin: 20px;
+      padding: 10px;
+      width: 45vh;
+      background-image: url("./search-icon.png");
+      background-repeat: no-repeat;
+      background-position-x: 2%;
+      padding-left: 50px;
+    }
+  }
+}

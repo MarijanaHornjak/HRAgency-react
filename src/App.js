@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import './App.scss'
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
 import AdminPage from './pages/AdminPage/AdminPage';
 import CreateReportPage from './pages/CreateReportPage/CreateReportPage';
 import HomePage from './pages/HomePage/HomePage';
@@ -24,6 +22,20 @@ function App() {
   const update = () => {
     setShouldUpdate(!shouldUpdate)
   }
+  useEffect(() => {
+    fetch("http://localhost:3333/api/candidates")
+      .then(res => res.json())
+      .then(res => setCandidateList(res))
+
+    fetch("http://localhost:3333/api/companies")
+      .then(res => res.json())
+      .then(res => setCompaniesList(res))
+
+    fetch("http://localhost:3333/api/reports")
+      .then(res => res.json())
+      .then(res => setReportsList(res))
+  }, [])
+
 
   return (
     <div className="App">
@@ -31,18 +43,18 @@ function App() {
       <mainContext.Provider value={{ candidateList, reportsList, companiesList, token, setToken, update }}>
 
         {!token && <Switch>
-          <Redirect from="/adminpage" to="/" />
+          <Redirect from="/admin" to="/" />
           <Route exact path="/" component={HomePage} />
-          <Route path="/singlepage/:id" component={SinglePage} />
+          <Route path="/candidate/:id" component={SinglePage} />
           <Route path="/loginpage" component={LogInPage} />
         </Switch>
         }
         {token && <Switch>
+          <Redirect from="/loginpage" to="/admin/reports" />
           <Route exact path="/" component={HomePage} />
-          <Redirect from="/loginpage" to="/adminpage" />
-          <Route path="/adminpage" component={AdminPage}></Route>
-          <Route path="/createreportpage" component={CreateReportPage} />
-          <Route path="/singlepage/:id" component={SinglePage} />
+          <Route path="/admin/reports" component={AdminPage}></Route>
+          <Route path="/admin/createreport" component={CreateReportPage} />
+          <Route path="/candidate/:id" component={SinglePage} />
         </Switch>}
 
       </mainContext.Provider>

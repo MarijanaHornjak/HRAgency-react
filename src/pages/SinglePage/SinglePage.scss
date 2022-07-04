@@ -1,0 +1,89 @@
+.SinglePage{
+    .wrapper{
+        padding: 30px;
+
+    
+      .top-wrapper{
+        display: flex;
+        justify-content: center;
+
+        .details-wrapper{
+            padding: 30px;
+
+            h2{
+                padding-bottom: 20px;
+                padding-left: 10px;
+
+            }
+        }
+        img{
+            padding: 20px;
+            height: 500px;
+            margin-right:20px;
+
+
+           
+        }
+      }
+      .bottom-wrapper{
+        width: 100%;
+        
+
+      
+      .titles{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: bisque;
+
+        
+        *{
+            width: 33%;
+            text-align: center;
+            
+            padding: 10px;
+        }
+      }
+      .reports{
+        display: flex;
+        width: 100%;
+        background-color: rgb(206, 198, 189);
+        padding: 10px;
+        flex-wrap: wrap;
+        
+
+        .report{
+            div{
+                width: 33%;
+                display: flex;
+                justify-content: center;
+
+                &:last-of-type>p{
+                    display: inline;
+                    // padding-right: 30px;
+                    
+
+                }
+                &:last-of-type>button{
+                   margin-left: 36%;
+                }
+               &:last-of-type{
+                display: flex;
+                justify-content:flex-end
+                ;
+               }
+            }
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            justify-content: space-evenly;
+           
+          
+         
+        
+            
+
+        }
+      }
+    }
+}
+}
