@@ -17,7 +17,7 @@ function App() {
   const [reportsList, setReportsList] = useState([]);
   const [companiesList, setCompaniesList] = useState([]);
   const [shouldUpdate, setShouldUpdate] = useState(false);
-  const [token, setToken] = useState(1);
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   const update = () => {
     setShouldUpdate(!shouldUpdate)
@@ -34,7 +34,7 @@ function App() {
     fetch("http://localhost:3333/api/reports")
       .then(res => res.json())
       .then(res => setReportsList(res))
-  }, [])
+  }, [shouldUpdate])
 
 
   return (

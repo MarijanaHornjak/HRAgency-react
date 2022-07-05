@@ -1,0 +1,44 @@
+.LogInPage {
+  height: 90vh;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .container {
+      background-color: beige;
+      padding: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 20px;
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin: 30px;
+        font-size: larger;
+        font-weight: 600;
+      }
+
+      input {
+        padding: 20px;
+        border-radius: 20px;
+        border: none;
+      }
+
+      button {
+        margin: 30px;
+        width: 80px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid grey;
+      }
+    }
+  }
+}

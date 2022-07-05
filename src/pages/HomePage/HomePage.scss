@@ -1,13 +1,13 @@
 .HomePage {
-  height: 80vh;
+  height: 100vh;
+  background-image: linear-gradient(to right, #e9bab9, #eaebed);
   .wrapper {
     padding: 0 235px;
+
     .cards {
       display: flex;
-
       flex-wrap: wrap;
       justify-content: center;
-
       width: 100%;
 
       a {
@@ -19,7 +19,7 @@
         text-decoration: none;
         color: black;
         background-color: beige;
-        width: 280px;
+        width: 30%;
 
         h3 {
           padding: 10px;

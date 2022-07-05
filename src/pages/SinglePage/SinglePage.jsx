@@ -16,12 +16,14 @@ function SinglePage(props) {
     candidateList && candidateList.find((e) => e.id === parseInt(id));
   const filteredReports =
     reportsList && reportsList.filter((e) => e.candidateId === parseInt(id));
+  const singleReport = filteredReports?.find((e) => e.id === selectedReport);
+  console.log(singleReport);
 
   console.log(selectedReport);
+  console.log(reportsList);
 
-  const toggleModal = (id) => {
+  const toggleModal = () => {
     setModal(!modal);
-    setSelectedReport(id);
   };
 
   return (
@@ -29,10 +31,7 @@ function SinglePage(props) {
       <Header></Header>
       <div className="wrapper">
         <div className="top-wrapper">
-          <img
-            src="https://www.svgrepo.com/show/5125/avatar.svg"
-            
-          ></img>
+          <img src="https://www.svgrepo.com/show/5125/avatar.svg"></img>
           <div className="details-wrapper">
             <p>Name</p>
             <h2>{candidate && candidate.name}</h2>
@@ -40,13 +39,13 @@ function SinglePage(props) {
             <h2>{candidate && candidate.email}</h2>
             <p>Date of birth</p>
             <h2>
-              {candidate && moment(candidate.birthday).format("DD.MM.YYYY")}
+              {candidate && moment(candidate.birthday).format("DD.MM.YYYY.")}
             </h2>
             <p>Education</p>
             <h2>{candidate && candidate.education}</h2>
           </div>
         </div>
-        <h1>Reports</h1>
+        <h1 className="heading">Reports</h1>
         <div className="bottom-wrapper">
           <div className="titles">
             <h4>Company</h4>
@@ -59,7 +58,7 @@ function SinglePage(props) {
                 return (
                   <div className="report" key={i}>
                     <div>{e.companyName}</div>
-                    <div>{moment(e.interviewDate).format("DD.MM.YYYY")}</div>
+                    <div>{moment(e.interviewDate).format("DD.MM.YYYY.")}</div>
                     <div>
                       <p>{e.status}</p>
                       <button
@@ -77,7 +76,9 @@ function SinglePage(props) {
           </div>
         </div>
       </div>
-      {modal && <Modal></Modal>}
+      {modal && (
+        <Modal singleReport={singleReport} toggleModal={toggleModal}></Modal>
+      )}
     </div>
   );
 }

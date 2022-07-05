@@ -1,7 +1,13 @@
 .SinglePage{
-    .wrapper{
-        padding: 30px;
-
+  position: relative;
+  height: 100vh;
+  
+  .wrapper{
+    padding: 30px;
+    
+    .heading{
+      margin-bottom: 20px;
+    }
     
       .top-wrapper{
         display: flex;
@@ -16,14 +22,13 @@
 
             }
         }
+
         img{
             padding: 20px;
             height: 500px;
             margin-right:20px;
-
-
-           
         }
+
       }
       .bottom-wrapper{
         width: 100%;
@@ -43,6 +48,8 @@
             padding: 10px;
         }
       }
+
+
       .reports{
         display: flex;
         width: 100%;
