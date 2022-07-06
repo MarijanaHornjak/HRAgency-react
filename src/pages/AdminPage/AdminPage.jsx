@@ -33,6 +33,7 @@ function AdminPage() {
   return (
     <div className="AdminPage">
       <Header></Header>
+      <div className="wrapper">
       <input
         type="text"
         value={searchText}
@@ -77,6 +78,9 @@ function AdminPage() {
           );
         })}
       </div>
+
+      </div>
+
       {modal && (
         <Modal singleReport={singleReport} toggleModal={toggleModal}></Modal>
       )}

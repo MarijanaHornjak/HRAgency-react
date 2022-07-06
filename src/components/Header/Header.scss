@@ -2,14 +2,46 @@
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  background-color: beige;
+  background-color: #85ada5;
+  flex-shrink: 0;
   a {
-    color: black;
+    color: #efefef;
+    font-size: larger;
     text-decoration: none;
+    &:last-child {
+      color: #efefef;
+      border: 1px solid #efefef;
+      border-radius: 20px;
+      padding: 5px 10px;
+      background-color: rgb(177, 211, 5);
+      &:hover {
+        cursor: pointer;
+        background-color: transparent;
+      }
+    }
+  }
+  #logout-login {
+    transition: 100ms;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
   }
   .button-wrapper {
     * {
       padding: 0 15px;
+    }
+    button {
+      color: white;
+      border: 1px solid #efefef;
+      padding: 5px 10px;
+      background-color: rgb(177, 211, 5);
+      border-radius: 20px;
+      transition: 100ms;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
     }
   }
 }

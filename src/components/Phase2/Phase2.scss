@@ -1,0 +1,41 @@
+.Phase2 {
+    
+
+    input {
+        margin: 20px;
+        padding: 10px;
+        width: 45vh;
+        border: none;
+        border-radius: 20px;
+        background-image: url("./search-icon.png");
+        background-repeat: no-repeat;
+        background-position-x: 2%;
+        padding-left: 50px;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          -webkit-box-shadow: -1px -1px 13px 1px rgba(177, 211, 5, 0.76);
+          box-shadow: -1px -1px 13px 1px rgba(177, 211, 5, 0.76);
+          cursor: pointer;
+        }
+      }
+    
+    .companies{
+        background-color: rgba($color: #ffffff, $alpha: 0.8);
+        border-radius: 20px;
+        margin: 10px;
+        width: 400px;
+
+        .company{
+            padding: 20px;
+            color: #38544f;
+            width: 100%;
+        }
+
+    }
+    .company.active {
+        border: 3px solid rgb(177, 211, 5);
+        border-radius: 20px;
+    }
+}

@@ -13,6 +13,7 @@ function Header() {
           <Link to="/admin/reports">Reports</Link>
           <Link to="/admin/createreport">Create Report</Link>
           <button
+            id="logout-login"
             onClick={() => {
               setToken("");
               localStorage.clear();

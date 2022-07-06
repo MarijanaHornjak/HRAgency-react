@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
   top: 0;
 
   .modal-details {
@@ -23,6 +24,7 @@
     margin-bottom: 20px;
     border-bottom: solid 1px gray;
     align-items: center;
+    color: #b1d305;
 
     button {
       width: 50px;
@@ -30,6 +32,11 @@
       border-radius: 50%;
       border: none;
       margin: 10px;
+      background-color: #b1d305;
+      color: white;
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
 
@@ -45,6 +52,9 @@
 
     .detail {
       padding: 10px;
+      p{
+        color: #85ada5;
+      }
     }
   }
 
@@ -53,6 +63,7 @@
     p:first-of-type {
       font-weight: 700;
       padding: 10px 0;
+      color: #85ada5
     }
   }
 }

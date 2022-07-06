@@ -1,6 +1,9 @@
 .HomePage {
   height: 100vh;
-  background-image: linear-gradient(to right, #e9bab9, #eaebed);
+  background-image: url("./desk-2325627.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
   .wrapper {
     padding: 0 235px;
 
@@ -17,23 +20,37 @@
         border: none;
         border-radius: 20px;
         text-decoration: none;
-        color: black;
-        background-color: beige;
+        color: #38544f;
+        background-color: rgba($color: #ffffff, $alpha: 0.8);
         width: 30%;
-
+        transition: 300ms;
+        &:hover {
+          transform: scale(1.1);
+        }
         h3 {
           padding: 10px;
         }
       }
+      
     }
     input {
       margin: 20px;
       padding: 10px;
       width: 45vh;
+      border: none;
+      border-radius: 20px;
       background-image: url("./search-icon.png");
       background-repeat: no-repeat;
       background-position-x: 2%;
       padding-left: 50px;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        -webkit-box-shadow: -1px -1px 13px 1px rgba(177, 211, 5, 0.76);
+        box-shadow: -1px -1px 13px 1px rgba(177, 211, 5, 0.76);
+        cursor: pointer;
+      }
     }
   }
 }

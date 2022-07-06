@@ -31,7 +31,10 @@ function SinglePage(props) {
       <Header></Header>
       <div className="wrapper">
         <div className="top-wrapper">
-          <img src="https://www.svgrepo.com/show/5125/avatar.svg"></img>
+          <img
+            src="https://www.svgrepo.com/show/5125/avatar.svg"
+            alt="image"
+          ></img>
           <div className="details-wrapper">
             <p>Name</p>
             <h2>{candidate && candidate.name}</h2>
@@ -67,7 +70,7 @@ function SinglePage(props) {
                           setSelectedReport(e.id);
                         }}
                       >
-                        Details
+                       Info
                       </button>
                     </div>
                   </div>

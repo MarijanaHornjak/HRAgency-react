@@ -1,20 +1,25 @@
 .LogInPage {
-  height: 90vh;
+  height: 100vh;
+  background-image: url('./desk-2325627.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    
 
     .container {
-      background-color: beige;
+      margin-top: 70px;
+      background-color:rgba($color: #ffffff, $alpha: 0.8);
       padding: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       border-radius: 20px;
+      color: #38544f;
 
       h1 {
         margin-bottom: 20px;
@@ -30,14 +35,32 @@
         padding: 20px;
         border-radius: 20px;
         border: none;
+        &:focus{
+          outline: none;
+        }
+        &:hover{
+          -webkit-box-shadow: -1px -1px 13px 1px rgba(177,211,5,0.76); 
+          box-shadow: -1px -1px 13px 1px rgba(177,211,5,0.76);
+          cursor: pointer;}
+        
       }
 
       button {
         margin: 30px;
-        width: 80px;
+        width: 100px;
         height: 40px;
+        color:white;
+        border: 1px solid #efefef;
+        padding: 10px 14px;
+        background-color: rgb(177,211,5);
         border-radius: 20px;
-        border: 1px solid grey;
+        transition: 100ms;
+        &:hover{
+          cursor: pointer;
+          transform: scale(1.1);
+      }
+        
+
       }
     }
   }

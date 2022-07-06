@@ -1,0 +1,50 @@
+.Phase1 {
+
+    input {
+        margin: 20px;
+        padding: 10px;
+        width: 45vh;
+        border: none;
+        border-radius: 20px;
+        background-image: url("./search-icon.png");
+        background-repeat: no-repeat;
+        background-position-x: 2%;
+        padding-left: 50px;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          -webkit-box-shadow: -1px -1px 13px 1px rgba(177, 211, 5, 0.76);
+          box-shadow: -1px -1px 13px 1px rgba(177, 211, 5, 0.76);
+          cursor: pointer;
+        }
+      }
+   
+
+    .candidates {
+        display: flex;
+        flex-wrap: wrap;
+
+        .candidate {
+            width: 35%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 10px;
+            color: #38544f;
+            background-color: rgba($color: #ffffff, $alpha: 0.8);
+            border-radius: 20px;
+
+            img{
+                height: 150px;
+
+            }
+            &.active {
+                background-color:rgba(177, 211, 5, 0.50);
+                color: white;
+        }
+    }
+}
+}

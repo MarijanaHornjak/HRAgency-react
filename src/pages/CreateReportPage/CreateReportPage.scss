@@ -1,0 +1,58 @@
+.CreateReportPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .wrapper {
+    height: 100%;
+    background-image: url("./desk-2325627.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex: 1;
+
+    .left-wrapper {
+      padding: 20px 100px;
+      color: #38544f;
+
+      .phase-wrapper {
+        margin-top: 30px;
+        padding: 50px;
+        background-color: rgba($color: #ffffff, $alpha: 0.8);
+        border-radius: 20px;
+      }
+
+      .phase {
+        width: 250px;
+      }
+
+      .phase.active {
+        background-color: rgba(177, 211, 5, 0.76);
+        color: white;
+        cursor: pointer;
+      }
+    }
+
+    .right-wrapper {
+      .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          width: 100px;
+          height: 40px;
+          color: white;
+          border: 1px solid #efefef;
+          padding: 10px 14px;
+          background-color: rgb(177, 211, 5);
+          border-radius: 20px;
+          transition: 100ms;
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
