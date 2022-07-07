@@ -25,12 +25,15 @@
         background-color: rgba($color: #ffffff, $alpha: 0.8);
         border-radius: 20px;
         margin: 10px;
-        width: 400px;
+        width: 900px;
+        
+        
 
         .company{
             padding: 20px;
             color: #38544f;
             width: 100%;
+            border: 3px solid transparent;
         }
 
     }

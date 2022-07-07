@@ -8,7 +8,7 @@ import moment from "moment";
 
 function SinglePage(props) {
   const [modal, setModal] = useState(false);
-  const { candidateList, reportsList } = useContext(mainContext);
+  const { candidateList, reportsList, theme } = useContext(mainContext);
   const { id } = useParams();
   const [selectedReport, setSelectedReport] = useState(0);
 
@@ -29,7 +29,7 @@ function SinglePage(props) {
   return (
     <div className="SinglePage">
       <Header></Header>
-      <div className="wrapper">
+      <div className={theme ? "wrapper" : "wrapper dark"}>
         <div className="top-wrapper">
           <img
             src="https://www.svgrepo.com/show/5125/avatar.svg"
@@ -56,26 +56,31 @@ function SinglePage(props) {
             <h4>Status</h4>
           </div>
           <div className="reports">
-            {filteredReports &&
-              filteredReports.map((e, i) => {
-                return (
-                  <div className="report" key={i}>
-                    <div>{e.companyName}</div>
-                    <div>{moment(e.interviewDate).format("DD.MM.YYYY.")}</div>
-                    <div>
-                      <p>{e.status}</p>
-                      <button
-                        onClick={() => {
-                          setModal(!modal);
-                          setSelectedReport(e.id);
-                        }}
-                      >
-                       Info
-                      </button>
+            {filteredReports.length > 0 ? (
+              <>
+                {filteredReports.map((e, i) => {
+                  return (
+                    <div className="report" key={i}>
+                      <div>{e.companyName}</div>
+                      <div>{moment(e.interviewDate).format("DD.MM.YYYY.")}</div>
+                      <div>
+                        <p>{e.status}</p>
+                        <button
+                          onClick={() => {
+                            setModal(!modal);
+                            setSelectedReport(e.id);
+                          }}
+                        >
+                          Info
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </>
+            ) : (
+              <h3>There is no Reports yet.</h3>
+            )}
           </div>
         </div>
       </div>

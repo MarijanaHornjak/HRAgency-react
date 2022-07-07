@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import "./CreateReportPage.scss";
 
 function CreateReportPage() {
-  const { token, update } = useContext(mainContext);
+  const { token, update, theme } = useContext(mainContext);
   const [phase, setPhase] = useState(1);
   const [report, setReport] = useState({
     candidateId: "",
@@ -44,29 +44,45 @@ function CreateReportPage() {
   return (
     <div className="CreateReportPage">
       <Header></Header>
-      <div className="wrapper">
+      <div className={theme ? "wrapper" : "wrapper dark"}>
         <div className="left-wrapper">
           <div className="phase-wrapper">
-          <h2
-            onClick={() => setPhase(1)}
-            className={phase === 1 ? "phase active" : "phase"}
-          >
-            Select Candidate
-          </h2>
-          <h2
-            onClick={() => setPhase(2)}
-            className={phase === 2 ? "phase active" : "phase"}
-          >
-            Select Company
-          </h2>
-          <h2
-            onClick={() => setPhase(3)}
-            className={phase === 3 ? "phase active" : "phase"}
-          >
-            Fill Report Detail
-          </h2>
+            <h2
+              onClick={() => {
+                if (report.candidateName !== "") {
+                  setPhase(1);
+                }
+              }}
+              className={phase === 1 ? "phase active" : "phase"}
+            >
+              Select Candidate
+            </h2>
+            <h2
+              onClick={() => {
+                if (report.companyName !== "") {
+                  setPhase(2);
+                }
+              }}
+              className={phase === 2 ? "phase active" : "phase"}
+            >
+              Select Company
+            </h2>
+            <h2
+              onClick={() => {
+                if (
+                  report.interviewDate !== "" &&
+                  report.phase !== "" &&
+                  report.status !== "" &&
+                  report.note !== ""
+                ) {
+                  setPhase(3);
+                }
+              }}
+              className={phase === 3 ? "phase active" : "phase"}
+            >
+              Fill Report Detail
+            </h2>
           </div>
-          
         </div>
         <div className="right-wrapper">
           {phase === 1 && <Phase1 report={report} setReport={setReport} />}
@@ -84,6 +100,7 @@ function CreateReportPage() {
                 Back
               </button>
             )}
+            {phase === 1 && <div></div>}
 
             {(phase === 1 || phase === 2) && (
               <button

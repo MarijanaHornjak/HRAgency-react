@@ -4,9 +4,10 @@ import { mainContext } from "../../App";
 import Header from "../../components/Header/Header";
 
 function LogInPage() {
-  const { token, setToken } = useContext(mainContext);
+  const { token, setToken, theme } = useContext(mainContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const logIn = () => {
     fetch("http://localhost:3333/login", {
@@ -14,17 +15,21 @@ function LogInPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: email, password: password }),
     })
-      .then((res) => res.json())
+      .then(async (response) => {
+        if (response.status < 400) return response.json();
+        else throw new Error(await response.json());
+      })
       .then((res) => {
         if (typeof res === "object") {
           localStorage.setItem("token", res.accessToken);
           setToken(res.accessToken);
         }
-      });
+      })
+      .catch((err) => setError(err.message));
   };
-
+  console.log(error.message);
   return (
-    <div className="LogInPage">
+    <div className={theme ? "LogInPage" : "LogInPage dark"}>
       <Header></Header>
       <div className="wrapper">
         <div className="container">
@@ -42,6 +47,7 @@ function LogInPage() {
             placeholder="type password"
           />
           <button onClick={() => logIn()}>Submit</button>
+          <h6 id="error">{error}</h6>
         </div>
       </div>
     </div>

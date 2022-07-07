@@ -5,14 +5,14 @@ import Header from "../../components/Header/Header";
 import CandidateCard from "../../components/CandidateCard/CandidateCard";
 
 function HomePage() {
-  const { candidateList } = useContext(mainContext);
+  const { candidateList, theme } = useContext(mainContext);
   const [searchText, setSearchText] = useState("");
   const searchedCandidates = candidateList?.filter((element) =>
     element.name.toLowerCase().includes(searchText.toLowerCase())
   );
   console.log(candidateList);
   return (
-    <div className="HomePage">
+    <div className={theme ? "HomePage" : "HomePage dark"}>
       <Header></Header>
       <div className="wrapper">
         <input

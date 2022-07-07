@@ -1,0 +1,50 @@
+.Phase3 {
+  padding: 80px;
+  margin-top: 55px;
+  background-color: rgba($color: #ffffff, $alpha: 0.8);
+  border-radius: 20px;
+
+  p {
+    color: #38544f;
+    padding: 10px;
+  }
+  input {
+    padding: 10px 30px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  select {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    option:focus {
+      background-color: yellow;
+    }
+  }
+  textarea {
+    margin-left: 10px;
+    border: none;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    resize: vertical;
+    max-height: 300px;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      -webkit-box-shadow: -1px -1px 13px 1px rgba(177, 211, 5, 0.76);
+      box-shadow: -1px -1px 13px 1px rgba(177, 211, 5, 0.76);
+      cursor: text;
+    }
+  }
+}

@@ -2,7 +2,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-
+  
   .wrapper {
     height: 100%;
     background-image: url("./desk-2325627.jpg");
@@ -10,10 +10,19 @@
     background-repeat: no-repeat;
     display: flex;
     flex: 1;
+    &.dark {
+      background-image: url("./office-865091.jpg");
+    }
 
     .left-wrapper {
       padding: 20px 100px;
       color: #38544f;
+      h2 {
+        margin: 5px 0;
+        &:hover {
+          cursor: pointer;
+        }
+      }
 
       .phase-wrapper {
         margin-top: 30px;
@@ -29,15 +38,16 @@
       .phase.active {
         background-color: rgba(177, 211, 5, 0.76);
         color: white;
-        cursor: pointer;
       }
     }
 
     .right-wrapper {
+      // width: 1000px;
       .navigation-buttons {
         display: flex;
         justify-content: space-between;
-
+        margin-top: 20px;
+        max-width: 1000px;
         button {
           width: 100px;
           height: 40px;
@@ -47,6 +57,7 @@
           background-color: rgb(177, 211, 5);
           border-radius: 20px;
           transition: 100ms;
+
           &:hover {
             cursor: pointer;
             transform: scale(1.1);

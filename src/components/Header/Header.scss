@@ -4,11 +4,18 @@
   justify-content: space-between;
   background-color: #85ada5;
   flex-shrink: 0;
+  align-items: center;
+  &.dark {
+    background-color: black;
+  }
+
   a {
     color: #efefef;
     font-size: larger;
     text-decoration: none;
+
     &:last-child {
+      margin-left: 10px;
       color: #efefef;
       border: 1px solid #efefef;
       border-radius: 20px;
@@ -20,8 +27,17 @@
       }
     }
   }
+  #logo {
+    &::first-letter {
+      color: rgb(177, 211, 5);
+    }
+    color: white;
+    font-size: 30px;
+    border-bottom: 3px solid rgb(177, 211, 5);
+  }
   #logout-login {
     transition: 100ms;
+    margin-left: 10px;
     &:hover {
       cursor: pointer;
       transform: scale(1.1);

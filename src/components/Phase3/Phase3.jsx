@@ -25,6 +25,7 @@ function Phase3(props) {
           props.setReport({ ...props.report, phase: e.target.value })
         }
       >
+        <option value="">Select phase</option>
         <option value="cv">CV</option>
         <option value="hr">HR</option>
         <option value="tech">TECHNICAL</option>
@@ -37,6 +38,7 @@ function Phase3(props) {
           props.setReport({ ...props.report, status: e.target.value })
         }
       >
+        <option value="">Select status</option>
         <option value="passed">PASSED</option>
         <option value="declined">DECLINED</option>
       </select>

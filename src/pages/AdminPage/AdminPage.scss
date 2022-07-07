@@ -5,6 +5,9 @@
     background-size: cover;
     display: flex;
     flex-direction: column;
+    &.dark {
+        background-image: url("./office-865091.jpg");
+      }
     
     .wrapper{
         overflow: auto;

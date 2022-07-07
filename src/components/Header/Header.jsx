@@ -4,14 +4,18 @@ import "./Header.scss";
 import { mainContext } from "../../App";
 
 function Header() {
-  const { token, setToken } = useContext(mainContext);
+  const { token, setToken, theme, toggleTheme } = useContext(mainContext);
+  console.log(theme);
   return (
-    <div className="Header">
-      <Link to="/">HR Agency</Link>
+    <div className={theme ? "Header" : "Header dark"}>
+      <Link to="/" id="logo">
+        HЯ Agency
+      </Link>
       {token && (
         <div className="button-wrapper">
           <Link to="/admin/reports">Reports</Link>
           <Link to="/admin/createreport">Create Report</Link>
+          <button onClick={() => toggleTheme()}>Change Theme</button>
           <button
             id="logout-login"
             onClick={() => {
@@ -26,6 +30,7 @@ function Header() {
       {!token && (
         <div className="button-wrapper">
           <Link to="/">Candidates</Link>
+          <button onClick={() => toggleTheme()}>Change Theme</button>
           <Link to="/loginpage">Log in</Link>
         </div>
       )}

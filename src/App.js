@@ -18,9 +18,22 @@ function App() {
   const [companiesList, setCompaniesList] = useState([]);
   const [shouldUpdate, setShouldUpdate] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const [theme, setTheme] = useState(parseInt(localStorage.getItem("theme")))
+  const [theme2, setTheme2] = useState(0)
 
   const update = () => {
     setShouldUpdate(!shouldUpdate)
+  }
+
+  const toggleTheme = () => {
+    if (theme2 === 1) {
+      setTheme2(0)
+    } else {
+      setTheme2(1)
+    }
+    localStorage.setItem("theme", theme2)
+    setTheme(theme2)
+
   }
   useEffect(() => {
     fetch("http://localhost:3333/api/candidates")
@@ -36,11 +49,10 @@ function App() {
       .then(res => setReportsList(res))
   }, [shouldUpdate])
 
-
   return (
     <div className="App">
 
-      <mainContext.Provider value={{ candidateList, reportsList, companiesList, token, setToken, update }}>
+      <mainContext.Provider value={{ candidateList, reportsList, companiesList, token, setToken, update, theme, toggleTheme }}>
 
         {!token && <Switch>
           <Redirect from="/admin" to="/" />

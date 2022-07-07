@@ -6,7 +6,7 @@ import Modal from "../../components/Modal/Modal";
 import moment from "moment";
 
 function AdminPage() {
-  const { reportsList, token, update } = useContext(mainContext);
+  const { reportsList, token, update,theme } = useContext(mainContext);
   const [searchText, setSearchText] = useState("");
   const [modal, setModal] = useState(false);
   const [selectedReport, setSelectedReport] = useState(0);
@@ -29,56 +29,55 @@ function AdminPage() {
     }).then((res) => update());
   };
 
-  console.log(selectedReport);
+  // console.log(selectedReport);
   return (
-    <div className="AdminPage">
+    <div className={theme ?"AdminPage": "AdminPage dark"}>
       <Header></Header>
       <div className="wrapper">
-      <input
-        type="text"
-        value={searchText}
-        onChange={(event) => setSearchText(event.target.value)}
-      ></input>
-      <div className="reports">
-        {searchedReports.map((e, i) => {
-          return (
-            <div className="singleReport">
-              <div className="detail">
-                {e.companyName}
-                <p>Company</p>
+        <input
+          type="text"
+          value={searchText}
+          onChange={(event) => setSearchText(event.target.value)}
+        ></input>
+        <div className="reports">
+          {searchedReports.map((e, i) => {
+            return (
+              <div className="singleReport">
+                <div className="detail">
+                  {e.companyName}
+                  <p>Company</p>
+                </div>
+                <div className="detail">
+                  {e.candidateName}
+                  <p>Candidate</p>
+                </div>
+                <div className="detail">
+                  {moment(e.interviewDate).format("DD.MM.YYYY.")}
+                  <p>Interview Date</p>
+                </div>
+                <div className="detail">
+                  {e.status}
+                  <p>Status</p>
+                </div>
+                <button
+                  onClick={() => {
+                    setModal(!modal);
+                    setSelectedReport(e.id);
+                  }}
+                >
+                  Details
+                </button>
+                <button
+                  onClick={() => {
+                    deleteReport(e.id);
+                  }}
+                >
+                  X
+                </button>
               </div>
-              <div className="detail">
-                {e.candidateName}
-                <p>Candidate</p>
-              </div>
-              <div className="detail">
-                {moment(e.interviewDate).format("DD.MM.YYYY.")}
-                <p>Interview Date</p>
-              </div>
-              <div className="detail">
-                {e.status}
-                <p>Status</p>
-              </div>
-              <button
-                onClick={() => {
-                  setModal(!modal);
-                  setSelectedReport(e.id);
-                }}
-              >
-                Details
-              </button>
-              <button
-                onClick={() => {
-                  deleteReport(e.id);
-                }}
-              >
-                X
-              </button>
-            </div>
-          );
-        })}
-      </div>
-
+            );
+          })}
+        </div>
       </div>
 
       {modal && (
