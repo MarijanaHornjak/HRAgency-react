@@ -20,10 +20,10 @@ function LogInPage() {
         else throw new Error(await response.json());
       })
       .then((res) => {
-        if (typeof res === "object") {
-          localStorage.setItem("token", res.accessToken);
-          setToken(res.accessToken);
-        }
+        // if (typeof res === "object") {
+        localStorage.setItem("token", res.accessToken);
+        setToken(res.accessToken);
+        // }
       })
       .catch((err) => setError(err.message));
   };
